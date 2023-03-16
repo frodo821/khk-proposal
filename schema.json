@@ -129,7 +129,7 @@
               "app": {
                 "description": "This contact's app information, e.g. 'WhatsApp', 'Telegram', etc.",
                 "anyOf": [
-                  {"type": "string"},
+                  { "type": "string" },
                   {
                     "type": "object",
                     "properties": {
@@ -262,6 +262,64 @@
             "examples": ["2019-01-01T00:00:00Z"]
           }
         }
+      }
+    },
+    "license": {
+      "type": "array",
+      "description": "Licenses and qualifications the person has",
+      "items": {
+        "type": "object",
+        "properties": {
+          "private": {
+            "type": "boolean",
+            "description": "Whether this license is private or not"
+          },
+          "name": {
+            "type": "string",
+            "description": "This license's name"
+          },
+          "authority": {
+            "type": "object",
+            "description": "This license's authority",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "This authority's name"
+              },
+              "type": {
+                "type": "string",
+                "description": "This authority's type, e.g. 'government', 'private org', etc."
+              },
+              "url": {
+                "type": "string",
+                "description": "This authority's official URL"
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "This license's description"
+          },
+          "licensed-at": {
+            "type": "string",
+            "description": "This license's date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "deprived-at": {
+            "type": "string",
+            "description": "This license's deprivation date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "expired-at": {
+            "type": "string",
+            "description": "This license's expiration date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          }
+        },
+        "required": ["name", "authority", "licensed-at"]
       }
     }
   }

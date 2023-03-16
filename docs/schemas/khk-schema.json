@@ -14,7 +14,7 @@
         "birth-date": {
           "type": "string",
           "description": "biological birth date of the person, must be in ISO 8601 format.",
-          "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+          "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
           "examples": ["2019-01-01T00:00:00Z"]
         }
       }
@@ -71,19 +71,19 @@
             "required": ["surface", "pronunciation"]
           }
         },
-        "citizenship": {
+        "nationality": {
           "type": "array",
-          "description": "citizenship of the person",
+          "description": "nationality of the person",
           "items": {
             "type": "object",
             "properties": {
               "country": {
                 "type": "string",
-                "description": "This citizenship's country"
+                "description": "country of this nationality"
               },
               "type": {
                 "type": "string",
-                "description": "This citizenship's type, e.g. 'citizen', 'resident', etc."
+                "description": "type of this nationality, e.g. 'citizen', 'resident', etc."
               }
             },
             "required": ["country"]
@@ -189,19 +189,19 @@
           "applied-at": {
             "type": "string",
             "description": "This job's applied date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "assigned-at": {
             "type": "string",
             "description": "This job's assigned/employed date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "left-at": {
             "type": "string",
             "description": "This job's left date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           }
         },
@@ -246,19 +246,19 @@
           "entered-at": {
             "type": "string",
             "description": "This education's entry date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "graduated-at": {
             "type": "string",
             "description": "This education's graduation date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "left-at": {
             "type": "string",
             "description": "This education's left date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           }
         }
@@ -294,7 +294,8 @@
                 "type": "string",
                 "description": "This authority's official URL"
               }
-            }
+            },
+            "required": ["name"]
           },
           "description": {
             "type": "string",
@@ -303,19 +304,19 @@
           "licensed-at": {
             "type": "string",
             "description": "This license's date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "deprived-at": {
             "type": "string",
             "description": "This license's deprivation date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           },
           "expired-at": {
             "type": "string",
             "description": "This license's expiration date, must be in ISO 8601 format.",
-            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "pattern": "^(\\d{4})-?(\\d{2})-?(\\d{2})T(\\d{2}):?(\\d{2}):?(\\d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
             "examples": ["2019-01-01T00:00:00Z"]
           }
         },

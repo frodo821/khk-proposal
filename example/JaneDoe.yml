@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../docs/schemas/khk-schema.json
+biological:
+  birth-date: "1984-05-08T00:00:00Z"
+  sex: female
+social:
+  gender: male
+  name:
+    - surface: Jane
+      pronunciation: jane
+      type: given
+    - surface: Doe
+      pronunciation: doe
+      type: family
+  nicknames:
+    - surface: Janey
+      pronunciation: janey
+      type: so-called
+    - surface: Blackbird
+      pronunciation: blackbird
+      type: handle
+  nationality:
+    - country: United States
+      type: citizenship
+    - country: Japan
+      type: permanent residency
+  contact:
+    - type: email
+      identifier: jane@email.example.com
+    - type: phone
+      identifier: 080-1234-5678
+    - type: sns
+      identifier: "@janedoe"
+      app:
+        name: Twitter 
+        url: "https://twitter.com"
+  resident:
+    country: Japan
+    address: "茨城県つくば市天王台2-1-1"
+    postal-code: "305-0006"
+    type: student condominium
+educations:
+  - degree: elementary education
+    entered-at: "1990-09-01T00:00:00Z"
+    graduated-at: "1998-08-31T00:00:00Z"
+    description: "I went to elementary school in the United States."
+    institution: 
+      name: "Example Elementary School"
+      type: elementary school
+  - degree: upper secondary education
+    entered-at: "2000-04-01T00:00:00Z"
+    graduated-at: "2003-03-31T00:00:00Z"
+    description: "I went to high school in Japan."
+    institution: 
+      name: "Example High School"
+      type: high school
+  - degree: bachelor of arts
+    entered-at: "2003-04-01T00:00:00Z"
+    graduated-at: "2007-03-31T00:00:00Z"
+    description: "I went to university in Japan."
+    institution: 
+      name: "Example University"
+      type: university
+jobs:
+  - title: "Junior Curator"
+    organization:
+      name: "Example Museum"
+      type: public museum
+    assigned-at: "2008-04-01T00:00:00Z"
+    description: "I worked as a junior curator at the Example Museum."
+license:
+  - name: "Driver's License"
+    private: false
+    description: "I have a driver's license."
+    authority:
+      name: "Tokyo Metropolitan Public Safety Commission"
+    licensed-at: "2005-09-23T00:00:00Z"
+    deprived-at: "2017-06-14T00:00:00Z"

@@ -88,6 +88,179 @@
             },
             "required": ["country"]
           }
+        },
+        "resident": {
+          "type": "object",
+          "description": "(main) resident of the person",
+          "properties": {
+            "country": {
+              "type": "string",
+              "description": "This resident's country"
+            },
+            "address": {
+              "type": "string",
+              "description": "This resident's address"
+            },
+            "postal-code": {
+              "type": "string",
+              "description": "This resident's postal code"
+            },
+            "type": {
+              "type": "string",
+              "description": "This resident's type, e.g. 'apartment', 'hotel', etc."
+            }
+          },
+          "required": ["country"]
+        },
+        "contact": {
+          "type": "array",
+          "description": "contact information of the person",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "This contact's type, e.g. 'email', 'phone', etc."
+              },
+              "identifier": {
+                "type": "string",
+                "description": "This contact's identifier, e.g. phone number, email address, etc."
+              },
+              "app": {
+                "description": "This contact's app information, e.g. 'WhatsApp', 'Telegram', etc.",
+                "anyOf": [
+                  {"type": "string"},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "This app's name"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "This app's URL (e.g. 'https://twitter.com/')"
+                      }
+                    },
+                    "required": ["name", "url"]
+                  }
+                ]
+              }
+            },
+            "required": ["type", "identifier"]
+          }
+        }
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "description": "Jobs the person has occupied",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "This job's title"
+          },
+          "description": {
+            "type": "string",
+            "description": "This job's description"
+          },
+          "organization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "This organization's name"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "This organization's type, e.g. 'company', 'non-profit org', etc."
+                  }
+                }
+              }
+            ]
+          },
+          "applied-at": {
+            "type": "string",
+            "description": "This job's applied date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "assigned-at": {
+            "type": "string",
+            "description": "This job's assigned/employed date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "left-at": {
+            "type": "string",
+            "description": "This job's left date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          }
+        },
+        "required": ["title", "organization", "assigned-at"]
+      }
+    },
+    "educations": {
+      "type": "array",
+      "description": "Educations the person has attended",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": {
+            "type": "string",
+            "description": "This education's degree, e.g. 'primary education', 'bachelor', etc."
+          },
+          "description": {
+            "type": "string",
+            "description": "This education degree's description"
+          },
+          "institution": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "This institution's name"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "This institution's type, e.g. 'school', 'university', etc."
+                  }
+                },
+                "required": ["name"]
+              }
+            ]
+          },
+          "entered-at": {
+            "type": "string",
+            "description": "This education's entry date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "graduated-at": {
+            "type": "string",
+            "description": "This education's graduation date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          },
+          "left-at": {
+            "type": "string",
+            "description": "This education's left date, must be in ISO 8601 format.",
+            "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+            "examples": ["2019-01-01T00:00:00Z"]
+          }
         }
       }
     }

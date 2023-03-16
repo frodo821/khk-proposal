@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://frodo821.me/schema/khk",
+  "type": "object",
+  "properties": {
+    "biological": {
+      "type": "object",
+      "properties": {
+        "sex": {
+          "type": "string",
+          "description": "biological sex of the person.",
+          "enum": ["male", "female"]
+        },
+        "birth-date": {
+          "type": "string",
+          "description": "biological birth date of the person, must be in ISO 8601 format.",
+          "pattern": "^(d{4})-(d{2})-(d{2})T(d{2}):(d{2}):(d{2}(?:.d*)?)((-(d{2}):(d{2})|Z)?)$",
+          "examples": ["2019-01-01T00:00:00Z"]
+        }
+      }
+    },
+    "social": {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "type": "string",
+          "description": "Social gender of the person; what they consider themself as.",
+          "examples": ["female", "male"]
+        },
+        "name": {
+          "type": "array",
+          "description": "name of the person",
+          "items": {
+            "type": "object",
+            "properties": {
+              "surface": {
+                "type": "string",
+                "description": "This name part's inscription in their mother-tongue"
+              },
+              "pronunciation": {
+                "type": "string",
+                "description": "This name part's pronunciation; should be in IPA or roman alphabet"
+              },
+              "type": {
+                "type": "string",
+                "description": "This name part's type, e.g. 'given', 'family', etc."
+              }
+            },
+            "required": ["surface", "pronunciation"]
+          }
+        },
+        "nicknames": {
+          "type": "array",
+          "description": "nicknames of the person",
+          "items": {
+            "type": "object",
+            "properties": {
+              "surface": {
+                "type": "string",
+                "description": "This nickname's inscription that in mainly-used language."
+              },
+              "pronunciation": {
+                "type": "string",
+                "description": "This nickname's pronunciation; should be in IPA or roman alphabet"
+              },
+              "type": {
+                "type": "string",
+                "description": "This nickname's type, e.g. 'handle name', etc. "
+              }
+            },
+            "required": ["surface", "pronunciation"]
+          }
+        },
+        "citizenship": {
+          "type": "array",
+          "description": "citizenship of the person",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "This citizenship's country"
+              },
+              "type": {
+                "type": "string",
+                "description": "This citizenship's type, e.g. 'citizen', 'resident', etc."
+              }
+            },
+            "required": ["country"]
+          }
+        }
+      }
+    }
+  }
+}
